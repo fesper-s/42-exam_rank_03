@@ -1,5 +1,4 @@
-#include <stdlib.h>
-#include <unistd.h>
+#include "get_next_line.h"
 
 char	*get_next_line(int fd)
 {
@@ -12,18 +11,4 @@ char	*get_next_line(int fd)
 		return (*buffer = 0, str);
 	else
 		return (free(str), NULL);
-}
-
-#include <stdio.h>
-#include <fcntl.h>
-
-int	main(void)
-{
-	int		fd;
-	char	*str;
-
-	fd = open("./teste.txt", O_RDONLY);
-	str = get_next_line(fd);
-	printf("%s", str);
-	free(str);
 }
